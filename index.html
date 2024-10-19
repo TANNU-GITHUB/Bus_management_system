@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Bus Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <img src="./image/logo.png" alt="TrackMyBus" class="logo">
+                <h2>TrackMyBus</h2>
+            </div>
+            <nav class="menu">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Bus Management</a>
+                <a href="#">Routes & Timetables</a>
+                <a href="#">User Management</a>
+                <a href="#">Attendance Tracking</a>
+                <a href="#">Shuttle Service</a>
+                <a href="#">Reports</a>
+            </nav>
+        </aside>
+        
+        <!-- Main content -->
+        <div class="main-content">
+            <header>
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="user-profile">
+                    <img src="./image/user.png" alt="User Profile" class="user-pic">
+                    <span>Ramu</span>
+                    <div class="notifications">
+                        <i class="bell-icon">🔔</i>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="overview">
+                <div class="overview-card">
+                    <h3>Total Buses</h3>
+                    <p>35/40</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Active Routes</h3>
+                    <p>12</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Student Attendance</h3>
+                    <p>87%</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Maintenance Alerts</h3>
+                    <p>5</p>
+                </div>
+            </section>
+            
+            <section class="bus-info">
+                <div class="bus-card">
+                    <h4>Bus 101</h4>
+                    <p>Status: Active</p>
+                </div>
+                <div class="bus-card">
+                    <h4>Bus 102</h4>
+                    <p>Status: Under Maintenance</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
