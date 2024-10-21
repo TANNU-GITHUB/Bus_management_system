@@ -3,72 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Bus Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Student/Faculty Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo-section">
-                <img src="./image/logo.png" alt="TrackMyBus" class="logo">
-                <h2>TrackMyBus</h2>
+    <div class="container">
+        <header class="header">
+            <h1>Student/Faculty Dashboard</h1>
+        </header>
+
+        <div class="content">
+            <div class="card" id="bus-schedule">
+                <h2>Bus Schedule</h2>
+                <ul>
+                    <li>Shuttle 1(to mansarovar): 10:00 AM - 10:30 AM</li>
+                    <li>Shuttle 2(to ajmeri gate): 11:00 AM - 11:30 AM</li>
+                    <li>Shuttle 3(to city mall): 12:00 PM - 12:30 PM</li>
+                </ul>
             </div>
-            <nav class="menu">
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">Bus Management</a>
-                <a href="#">Routes & Timetables</a>
-                <a href="#">User Management</a>
-                <a href="#">Attendance Tracking</a>
-                <a href="#">Shuttle Service</a>
-                <a href="#">Reports</a>
-            </nav>
-        </aside>
-        
-        <!-- Main content -->
-        <div class="main-content">
-            <header>
-                <input type="text" placeholder="Search..." class="search-bar">
-                <div class="user-profile">
-                    <img src="./image/user.png" alt="User Profile" class="user-pic">
-                    <span>Ramu</span>
-                    <div class="notifications">
-                        <i class="bell-icon">🔔</i>
-                    </div>
+
+            <div class="card" id="attendance">
+                <h2>Bus Attendance</h2>
+                <p>Total Days of Operation: 25</p>
+                <p>Attended: 20</p>
+                <p>Percentage: 80%</p>
+            </div>
+
+            <div class="card" id="reservation-status">
+                <h2>Shuttle Reservation Status</h2>
+                <p>Reservation for Route 1: Confirmed</p>
+                <p>Reservation for Route 2: Pending</p>
+            </div>
+
+            <div class="card" id="issue-reporting">
+                <h2>Report an Issue</h2>
+                <form>
+                    <textarea placeholder="Describe the issue..." rows="4"></textarea>
+                    <button onclick="SubmitIssue()" type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div class="card" id="notifications">
+                <h2>Notifications</h2>
+                <ul>
+                    <li>Bus on Route 1 delayed by 15 minutes.</li>
+                    <li>Route 3 maintenance scheduled for tomorrow.</li>
+                    <li>New bus timings updated.</li>
+                    <li>Your issue is under progress.</li>
+                </ul>
+            </div>
+
+            <div class="card" id="contact-driver-spoc">
+                <h2>Contact Driver/SPOC</h2>
+                <p>If you need to contact the Driver or SPOC, fill in your message below:</p>
+                
+                
+                
+                <textarea id="message-input" placeholder="Type your message here..." rows="4"></textarea>
+                
+                <div>
+                    <button onclick="contactDriverSPOC()">Contact</button>
+                    
+                <select id="contact-select">
+                    <option value="driver">Driver</option>
+                    <option value="spoc">SPOC</option>
+                </select>
+                    <button onclick="sendMessage()">Send Message</button>
+                <select id="contact-select">
+                    <option value="driver">Driver</option>
+                    <option value="spoc">SPOC</option>
+                </select>
                 </div>
-            </header>
-            
-            <section class="overview">
-                <div class="overview-card">
-                    <h3>Total Buses</h3>
-                    <p>35/40</p>
-                </div>
-                <div class="overview-card">
-                    <h3>Active Routes</h3>
-                    <p>12</p>
-                </div>
-                <div class="overview-card">
-                    <h3>Student Attendance</h3>
-                    <p>87%</p>
-                </div>
-                <div class="overview-card">
-                    <h3>Maintenance Alerts</h3>
-                    <p>5</p>
-                </div>
-            </section>
-            
-            <section class="bus-info">
-                <div class="bus-card">
-                    <h4>Bus 101</h4>
-                    <p>Status: Active</p>
-                </div>
-                <div class="bus-card">
-                    <h4>Bus 102</h4>
-                    <p>Status: Under Maintenance</p>
-                </div>
-            </section>
+                
+            </div>
         </div>
+
+        <a href="loginpage.html">Logout</a>
+
+        <script>
+            function SubmitIssue() {
+                alert('Your issue has been reported. Check status at issue status.');
+            }
+
+            function contactDriverSPOC() {
+                const selectedContact = document.getElementById('contact-select').value;
+                alert(`Contacting ${selectedContact === 'driver' ? 'Driver' : 'SPOC'} at +1 (234) 567-8901`);
+            }
+
+            function sendMessage() {
+                const message = document.getElementById('message-input').value;
+                const selectedContact = document.getElementById('contact-select').value;
+
+                if (message) {
+                    alert(`Message sent to ${selectedContact === 'driver' ? 'Driver' : 'SPOC'}: ${message}`);
+                    document.getElementById('message-input').value = '';
+                } else {
+                    alert('Please enter a message before sending.');
+                }
+            }
+        </script>
     </div>
 </body>
 </html>
