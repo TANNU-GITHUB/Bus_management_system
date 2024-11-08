@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Body and general styling */
+    body {
+      background-color: #f7f9fc;
+      display: flex;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 250px;
+      background-color: #845EC2;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      height: 100vh;
+    }
+
+    .sidebar img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      width: 100%;
+    }
+
+    .sidebar ul li {
+      padding: 15px;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #9B7AD7;
+      border-radius: 10px;
+    }
+
+    .sidebar ul li img {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Main content styling */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header .search-box {
+      width: 300px;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+    }
+    .header .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* Welcome Banner */
+    .welcome-banner {
+      background-color: #D5A6FF;
+      border-radius: 20px;
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .welcome-banner h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .welcome-banner p {
+      font-size: 1rem;
+      color: #f0e9ff;
+    }
+
+    .welcome-banner img {
+      width: 100px;
+      height: auto;
+    }
+
+    /* Widgets section */
+    .widgets {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .widget {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      text-align: center;
+    }
+
+    .widget h3 {
+      margin-bottom: 10px;
+      color: #845EC2;
+      font-size: 1.2rem;
+    }
+
+    .widget p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Right panel */
+    .right-panel {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+
+    .right-panel h3 {
+      color: #845EC2;
+      margin-bottom: 20px;
+    }
+
+    .right-panel .notice {
+      background: #f7f1ff;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .right-panel .notice p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <ul>
+      <li> Bus schedule</li>
+      <li> Attendance</li>
+      <li> Rwservation</li>
+      <li>Issue Reporting</li>
+      <li> Notification</li>
+      <li> Contact Driver/SPOC</li>
+      <li> Logout</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Header -->
+    <div class="header">
+      <div class="profile">
+        <img src="student.jpg" alt="Profile">
+        <div>
+          <p>John Doe</p>
+          <p>3rd year</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+      <div>
+        <h1>Welcome back, John!</h1>
+      </div>
+      <img src="student1.jpg" alt="Welcome Image">
+    </div>
+
+    <!-- Widgets -->
+    <div class="widgets">
+      <div class="widget">
+        <h3>Next Bus Schedule</h3>
+        <p>Route: 10A | Departure: 8:00 AM
+          Arrival: 8:30 AM</p>
+      </div>
+      <div class="widget">
+        <h3>Attendance</h3>
+        <p>Present today</p>
+      </div>
+      <div class="widget">
+        <h3>Reservation Status</h3>
+        <p>Seat: Confirmed</p>
+      </div>
+      <div class="widget">
+        <h3>Notifications</h3>
+        <p>3 New Alerts - Check for updates.</p>
+      </div>
+      <div class="widget">
+        <h3>Contact Driver/SPOC</h3>
+        <p>Direct call or message options.</p>
+      </div>
+    </div>
+
+    <!-- Right Panel (Course Instructors and Daily Notice) -->
+    <div class="right-panel">
+      <h3>Daily Notice</h3>
+      <div class="notice">
+        <p><strong>Prelim payment due:</strong> Please ensure to complete your payment by the end of the week.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
