@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Body and general styling */
+    body {
+      background-color: #f7f9fc;
+      display: flex;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 250px;
+      background-color: #845EC2;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      height: 100vh;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      width: 100%;
+    }
+
+    .sidebar ul li {
+      padding: 15px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #9B7AD7;
+      transform: translateX(5px);
+    }
+
+    .sidebar ul li i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #fff;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Main content styling */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Header with profile */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #845EC2;
+      color: #fff;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* Welcome Banner */
+    .welcome-banner {
+      background-color: #D5A6FF;
+      border-radius: 20px;
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .welcome-banner h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .welcome-banner img {
+      width: 100px;
+      height: auto;
+    }
+
+    /* Widgets section */
+    .widgets {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .widget {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      flex: 1;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .widget:hover {
+      transform: translateY(-5px);
+    }
+
+    .widget h3 {
+      margin-bottom: 10px;
+      color: #845EC2;
+      font-size: 1.2rem;
+    }
+
+    /* Right panel */
+    .right-panel {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      flex: 1;
+    }
+
+    .right-panel h3 {
+      color: #845EC2;
+      margin-bottom: 20px;
+    }
+
+    .right-panel .notice {
+      background: #f7f1ff;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .right-panel .notice p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <ul>
+      <li><i class="fas fa-bus"></i><a href="/bus-schedule">Bus Schedule</a></li>
+      <li><i class="fas fa-calendar-check"></i><a href="/attendance">Attendance</a></li>
+      <li><i class="fas fa-check-circle"></i><a href="/reservation">Reservation</a></li>
+      <li><i class="fas fa-exclamation-triangle"></i><a href="/issue-reporting">Issue Reporting</a></li>
+      <li><i class="fas fa-bell"></i><a href="/notification">Notification</a></li>
+      <li><i class="fas fa-phone"></i><a href="/contact-driver">Contact Driver/SPOC</a></li>
+      <li><i class="fas fa-sign-out-alt"></i><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <!-- Header with Profile -->
+    <header>
+      <div class="profile">
+        <img src="student.jpg" alt="Profile">
+        <div>
+          <p><%= user %></p>
+          <p>3rd Year</p>
+        </div>
+      </div>
+    </header>
+  
+    <!-- Bus Deployment Details Section -->
+    <div class="bus-deployment-section">
+      <h1 style="color: #845EC2;">Bus Deployment Details</h1>
+      <p>Effective from July 29, 2024</p>
+  
+      <!-- Deployment Details Table -->
+      <div style="overflow-x: auto; margin-top: 20px; background-color: #f7f1ff; padding: 20px; border-radius: 10px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: #845EC2; color: #fff;">
+              <th style="padding: 10px;">S. No.</th>
+              <th style="padding: 10px;">Route</th>
+              <th style="padding: 10px;">Bus No.</th>
+              <th style="padding: 10px;">Vehicle Type</th>
+              <th style="padding: 10px;">Driver & Contact</th>
+              <th style="padding: 10px;">Student SPOC & Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 10px;">R1</td>
+              <td style="padding: 10px;">Shastri Nagar to JKLU</td>
+              <td style="padding: 10px;">RJ 14 PE 8005</td>
+              <td style="padding: 10px;">Bus</td>
+              <td style="padding: 10px;">Sonu - 9667203995</td>
+              <td style="padding: 10px;">Ananya Singh - 8822910379</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 10px;">R2</td>
+              <td style="padding: 10px;">New Gate to JKLU</td>
+              <td style="padding: 10px;">RJ 14 PD 4239</td>
+              <td style="padding: 10px;">Bus</td>
+              <td style="padding: 10px;">Sunil - 8739994930</td>
+              <td style="padding: 10px;">Harshita Agrawal - 9166432563</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 10px;">R3</td>
+              <td style="padding: 10px;">Niwaru to JKLU</td>
+              <td style="padding: 10px;">RJ 14 PE 9128</td>
+              <td style="padding: 10px;">Bus</td>
+              <td style="padding: 10px;">Arun - 8427357944</td>
+              <td style="padding: 10px;">Gauri Akar - 7878220947</td>
+            </tr>
+            <!-- Additional rows for R4 to R10 -->
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 10px;">R4</td>
+              <td style="padding: 10px;">Kalwar Road to JKLU</td>
+              <td style="padding: 10px;">RJ 40 TA 0186</td>
+              <td style="padding: 10px;">TT</td>
+              <td style="padding: 10px;">Sunny - 7615011107</td>
+              <td style="padding: 10px;">Muskan Bano - 9928984056</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 10px;">R5</td>
+              <td style="padding: 10px;">Murlipura to JKLU</td>
+              <td style="padding: 10px;">RJ 14 PD 9175</td>
+              <td style="padding: 10px;">TT</td>
+              <td style="padding: 10px;">Shreechand - 7891567101</td>
+              <td style="padding: 10px;">Riya Jain - 8619208908</td>
+            </tr>
+            <!-- Continue similarly for other routes R6 to R10 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="/index.js"></script>
+</body>
+
+</html>
