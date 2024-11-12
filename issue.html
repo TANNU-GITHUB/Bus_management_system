@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Issue Reporting</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Body and general styling */
+    body {
+      background-color: #f7f9fc;
+      display: flex;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 250px;
+      background-color: #845EC2;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      height: 100vh;
+    }
+
+    .sidebar img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      width: 100%;
+    }
+
+    .sidebar ul li {
+      padding: 15px;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #9B7AD7;
+      border-radius: 10px;
+    }
+
+    .sidebar ul li img {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Main content styling */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* Welcome Banner */
+    .welcome-banner {
+      background-color: #D5A6FF;
+      border-radius: 20px;
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .welcome-banner h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .welcome-banner p {
+      font-size: 1rem;
+      color: #f0e9ff;
+    }
+
+    .welcome-banner img {
+      width: 100px;
+      height: auto;
+    }
+
+    /* Issue reporting form styling */
+    .issue-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .issue-form h3 {
+      margin-bottom: 15px;
+      color: #845EC2;
+    }
+
+    .issue-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .issue-form input, .issue-form select, .issue-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .issue-form button {
+      background-color: #845EC2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .issue-form button:hover {
+      background-color: #9B7AD7;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <ul>
+        <li><a href="attendance.html">Bus schedule</a></li>
+        <li><a href="attendance.html">Attendance</a></li>
+        <li><a href="reservation.html">Reservation</a></li>
+        <li><a href="issue-reporting.html">Issue Reporting</a></li>
+        <li><a href="notifications.html">Notification</a></li>
+        <li><a href="contact.html">Contact Driver/SPOC</a></li>
+        <li><a href="logout.html">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Header -->
+    <div class="header">
+      <div class="profile">
+        <img src="student.jpg" alt="Profile">
+        <div>
+          <p>Fatima</p>
+          <p>3rd year</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+      <div>
+        <h1>Welcome back, Fatima!</h1>
+      </div>
+      <img src="student1.jpg" alt="Welcome Image">
+    </div>
+
+    <!-- Issue Reporting Form -->
+    <div class="issue-form">
+      <h3>Report a Bus Issue</h3>
+      <form>
+        <label for="issue-type">Select Issue Type:</label>
+        <select id="issue-type" required>
+          <option value="">--Select Issue--</option>
+          <option value="broken-seats">Broken Seats</option>
+          <option value="ac-issues">AC Issues</option>
+          <option value="door-malfunction">Door Malfunction</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="issue-description">Describe the Issue:</label>
+        <textarea id="issue-description" rows="4" required></textarea>
+
+        <button type="submit">Submit Report</button>
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>

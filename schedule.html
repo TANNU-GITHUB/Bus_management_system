@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Schedule</title>
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #f5f7fa; /* Lightened background */
+            margin: 0;
+            height: 100vh;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            position: fixed;
+            width: 220px;
+            height: 100%;
+            background-color: #9c4bde; /* Lighter purple shade */
+            color: white;
+            padding-top: 20px;
+            overflow: hidden;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .sidebar a:hover {
+            background-color: #7c2a8f; /* Slightly lighter shade */
+        }
+
+        /* Main content container styling */
+        .main-content {
+            margin-left: 240px; /* Offset for sidebar width */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(100% - 240px); /* Adjust width for sidebar */
+        }
+
+        /* Container styling for the schedule */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+        }
+
+        .container h2 {
+            color: #9c4bde; /* Lighter purple */
+            margin-bottom: 20px;
+        }
+
+        /* PDF iframe styling */
+        .pdf-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #9c4bde; /* Lighter purple border */
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="schedule.html" style="color: white; text-decoration: none;">Bus schedule</a>
+      <a href="attendance.html" style="color: white; text-decoration: none;">Attendance</a>
+      <a href="reservation.html" style="color: white; text-decoration: none;">Reservation</a>
+      <a href="issue.html" style="color: white; text-decoration: none;">Issue Reporting</a>
+      <a href="#" style="color: white; text-decoration: none;">Notification</a>
+      <a href="#" style="color: white; text-decoration: none;">Contact Driver/SPOC</a>
+      <a href="#" style="color: white; text-decoration: none;">Logout</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <h2>Bus Schedule</h2>
+            <div class="pdf-container">
+                <!-- Embed the PDF -->
+                <iframe src="Shuttle Time Table.pdf" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

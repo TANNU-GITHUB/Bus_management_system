@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Seat Reservation</title>
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #f0f3f5;
+            margin: 0;
+            height: 100vh;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            position: fixed;
+            width: 220px;
+            height: 100%;
+            background-color: #6a1b9a;
+            color: white;
+            padding-top: 20px;
+            overflow: hidden;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .sidebar a:hover {
+            background-color: #4a148c;
+        }
+
+        /* Main content container styling */
+        .main-content {
+            margin-left: 240px; /* Offset for sidebar width */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(100% - 240px); /* Adjust width for sidebar */
+        }
+
+        /* Container styling */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h2 {
+            color: #6f42c1;
+            margin-bottom: 20px;
+        }
+
+        /* Bus structure */
+        .bus {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        /* Seat styles */
+        .seat {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .seat.available {
+            background-color: #e0d4f7;
+            border: 1px solid #6f42c1;
+        }
+
+        .seat.selected {
+            background-color: #6f42c1;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .seat.reserved {
+            background-color: #cccccc;
+            color: #333333;
+            cursor: not-allowed;
+        }
+
+        /* Button styles */
+        .reserve-btn {
+            background-color: #6f42c1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .reserve-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        /* Notification style */
+        .notification {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+        }
+
+        /* Hello message styling */
+        .hello-message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hello-message img {
+            width: 100px;
+            border-radius: 30%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="schedule.html" style="color: white; text-decoration: none;">Bus schedule</a>
+      <a href="attendance.html" style="color: white; text-decoration: none;">Attendance</a>
+      <a href="reservation.html" style="color: white; text-decoration: none;">Reservation</a>
+      <a href="issue.html" style="color: white; text-decoration: none;">Issue Reporting</a>
+      <a href="#" style="color: white; text-decoration: none;">Notification</a>
+      <a href="#" style="color: white; text-decoration: none;">Contact Driver/SPOC</a>
+      <a href="#" style="color: white; text-decoration: none;">Logout</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Hello message with image -->
+            <div class="hello-message">
+                <h2>Hello Fatima!</h2>
+                <img src="Student.jpg" alt="User Image">
+            </div>
+
+            <h2>Bus Seat Reservation</h2>
+            <div class="bus">
+                <!-- JavaScript will populate this dynamically -->
+            </div>
+            <button class="reserve-btn" onclick="reserveSeats()">Reserve Selected Seat</button>
+            <div class="notification" id="notification"></div>
+        </div>
+    </div>
+
+    <script>
+        // Variables to hold seat data
+        const seats = [];
+        const rows = 4;
+        const cols = 4;
+        let selectedSeat = null;
+
+        // Function to create bus layout dynamically
+        function createBusLayout() {
+            const busContainer = document.querySelector('.bus');
+            for (let i = 0; i < rows * cols; i++) {
+                const seat = document.createElement('div');
+                seat.classList.add('seat', 'available');
+                seat.dataset.seatId = i;
+                seat.innerText = i + 1; // Seat number
+                seat.onclick = () => selectSeat(seat);
+                busContainer.appendChild(seat);
+                seats.push(seat);
+            }
+        }
+
+        // Function to select a seat
+        function selectSeat(seat) {
+            if (seat.classList.contains('reserved')) return;
+            if (selectedSeat) {
+                selectedSeat.classList.remove('selected');
+                selectedSeat.classList.add('available');
+            }
+            seat.classList.remove('available');
+            seat.classList.add('selected');
+            selectedSeat = seat;
+        }
+
+        // Function to reserve a selected seat
+        function reserveSeats() {
+            if (selectedSeat) {
+                selectedSeat.classList.remove('selected');
+                selectedSeat.classList.add('reserved');
+                selectedSeat = null;
+                document.getElementById('notification').innerText = 'Seat reserved successfully!';
+            } else {
+                document.getElementById('notification').innerText = 'Please select a seat to reserve.';
+            }
+        }
+
+        // Initialize bus layout
+        createBusLayout();
+    </script>
+
+</body>
+</html>
