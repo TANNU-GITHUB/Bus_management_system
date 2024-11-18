@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<div class="jumbotron centered">
+  <div class="container">
+    <!-- Replace 'fas fa-bus' with an actual image of your logo if you have one -->
+    <i class="fas fa-bus fa-6x" style="color: #4CAF50;"></i> <!-- Example logo icon -->
+    <h1 class="display-3">My Bus</h1>
+    <p class="lead">Easily manage your bus schedules,attendance and stay updated.</p>
+    <hr>
+
+    <div class="button-container">
+      <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+      <a class="btn btn-secondary btn-lg" href="/login" role="button">Login</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
+
+<style>
+  .jumbotron {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 2em 1em;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .fas.fa-bus {
+    margin-bottom: 15px;
+  }
+
+  .button-container a {
+    margin: 5px;
+  }
+</style>

@@ -1,0 +1,66 @@
+<!-- Sidebar Component -->
+<div class="sidebar">
+    <style>
+      .sidebar {
+        width: 250px;
+        background-color: #845EC2;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        height: 100vh;
+      }
+  
+      .sidebar h2 {
+        margin-bottom: 30px;
+      }
+  
+      .sidebar ul {
+        list-style: none;
+        width: 100%;
+      }
+  
+      .sidebar ul li {
+        padding: 15px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        transition: background 0.3s, transform 0.3s;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+  
+      .sidebar ul li:hover {
+        background-color: #9B7AD7;
+        transform: translateX(5px);
+      }
+  
+      .sidebar ul li i {
+        margin-right: 10px;
+        font-size: 1.2rem;
+      }
+  
+      .sidebar ul li a {
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  
+    <h2>Dashboard</h2>
+    <ul>
+      <li><i class="fas fa-bus"></i><a href="/bus-schedule">Bus Schedule</a></li>
+      <li><i class="fas fa-calendar-check"></i><a href="/attendance">Attendance</a></li>
+      <li><i class="fas fa-check-circle"></i><a href="/reservation">Reservation</a></li>
+      <li><i class="fas fa-exclamation-triangle"></i><a href="/issue-reporting">Issue Reporting</a></li>
+      <li><i class="fas fa-bell"></i><a href="/notification">Notification</a></li>
+      <li><i class="fas fa-phone"></i><a href="/contact-driver">Contact Driver/SPOC</a></li>
+      <li><i class="fas fa-sign-out-alt"></i><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+  

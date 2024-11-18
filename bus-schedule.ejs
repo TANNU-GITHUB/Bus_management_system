@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Schedule</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Sidebar, Header, and general styling similar to dashboard */
+    body {
+      display: flex;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #845EC2;
+      color: #fff;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  
+  <%- include('sidebar') %>
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>Bus Schedule</h1>
+    </header>
+    <!-- PDF display in iframe -->
+    <iframe src="Shuttle Time Table.pdf" title="Shuttle Time Table"></iframe>
+  </div>
+</body>
+</html>

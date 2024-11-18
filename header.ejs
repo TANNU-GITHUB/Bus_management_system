@@ -1,0 +1,36 @@
+<!-- Header Component -->
+<header>
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #845EC2;
+      color: #fff;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  </style>
+
+  <div class="profile">
+    <img src="/public/images/student.jpg" alt="Profile">
+    <div>
+      <p><%= user %></p>
+      <p>3rd Year</p>
+    </div>
+  </div>
+</header>
